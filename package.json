@@ -2,11 +2,11 @@
   "name": "test_technique",
   "version": "1.0.0",
   "description": "",
-  "main": "src/server.js",
+  "main": "src/index.js",
   "type": "module",
   "scripts": {
-    "start": "node src/server.js",
-    "dev": "nodemon --legacy-watch src/server.js",
+    "start": "node src/index.js",
+    "dev": "nodemon --legacy-watch src/index.js",
     "test": "jest"
   },
   "author": "",
