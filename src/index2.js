@@ -1,9 +1,12 @@
+// Tache 1
+// Fonction pour vérifier si un nombre est divisible par tous les diviseurs requis
 const estMultiple = (nombre) => {
   return (
     nombre % 3 === 0 && nombre % 5 === 0 && nombre % 7 === 0 && nombre % 9 === 0
   );
 };
 
+// Fonction pour trouver le plus petit nombre supérieur ou égal à 100'000'000 qui soit multiple de 3, 5, 7 et 9
 const trouverNombreN = () => {
   let nombre = 100000000;
 
@@ -14,22 +17,22 @@ const trouverNombreN = () => {
   return nombre;
 };
 
-const creerListeEncodeeAPartirDeTableau = (tableau) => {
+const creerListeEncodee = (listeChiffres) => {
   const occurences = new Map();
 
+  // Fonction pour obtenir l'encodage d'un élément
   const obtenirEncodage = (element, index) => {
     if (!occurences.has(element)) {
       occurences.set(element, index + 1);
       return `E${element}`;
     } else {
       const premiereApparition = occurences.get(element);
-      occurences.set(element, premiereApparition + 1); // Mettre à jour la position
       return `R${premiereApparition}`;
     }
   };
 
-  // Appliquer la fonction d'encodage à chaque élément du tableau
-  const listeEncodee = tableau.map((element, index) =>
+  // Appliquer la fonction d'encodage à chaque élément de la liste
+  const listeEncodee = listeChiffres.map((element, index) =>
     obtenirEncodage(element, index)
   );
 
@@ -37,9 +40,9 @@ const creerListeEncodeeAPartirDeTableau = (tableau) => {
 };
 
 const N = trouverNombreN();
-const L = N.toString().split('');
-const L2 = creerListeEncodeeAPartirDeTableau(L);
+const L = N.toString().split('').join(', ');
+const listeEncodee = creerListeEncodee(L.split());
 
 console.log(`N = ${N}`);
-console.log(`L = ${L.join(', ')}`);
-console.log(`L' = ${L2.join(', ')}`);
+console.log(`L = ${L}`);
+console.log(`L' = ${listeEncodee.join(', ')}`);
